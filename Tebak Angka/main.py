@@ -1,4 +1,3 @@
-
 def batas_bawah() :
     a = int(input("Masukkan Batas Bawah : "))
 
