@@ -18,7 +18,9 @@ def terbilang(uang) :
 
     ribu = sisa_uang // 1_000
     sisa_uang = sisa_uang % 1_000
-    if ribu > 0 :
+    if ribu == 1 :
+        tabel += ["Seribu"]
+    elif ribu > 1 :
         tabel += [tiga_digit(ribu), "Ribu"]
 
     satu = sisa_uang // 1
@@ -26,12 +28,46 @@ def terbilang(uang) :
     if satu > 0 :
         tabel += [tiga_digit(satu)]
 
-    return tabel
+    return " ".join(tabel)
 
 def tiga_digit(angka) :
-    hasil = angka
+    nominal = {
+        1 : "Satu",
+        2 : "Dua",
+        3 : "Tiga",
+        4 : "Empat",
+        5 : "Lima",
+        6 : "Enam",
+        7 : "Tujuh",
+        8 : "Delapan",
+        9 : "Sembilan",
+    }
+    hasil = []
 
-    return hasil
+    ratusan = angka // 100
+    sisa_angka = angka % 100
+    if ratusan == 1 :
+        hasil.append("Seratus")
+    elif ratusan > 1 :
+        hasil.append(f"{nominal[ratusan]} Ratus")
+
+    puluhan = sisa_angka // 10
+    satuan = sisa_angka % 10
+    if puluhan == 1 :
+        if satuan == 0 :
+            hasil.append("Sepuluh")
+        elif satuan == 1 :
+            hasil.append("Sebelas")
+        else :
+            hasil.append(f"{nominal[satuan]} Belas")
+            satuan = 0
+    elif puluhan > 1 :
+        hasil.append(f"{nominal[puluhan]} Puluh")
+
+    if satuan > 0 :
+        hasil.append(nominal[satuan])
+
+    return " ".join(hasil)
 
 def main() :
     jumlahUang = int(input())
