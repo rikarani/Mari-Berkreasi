@@ -1,4 +1,2 @@
 # Terbilang
-kedepannya bakal diupdate, untuk sementara begini dulu
-
-In the future it will be updated, for now this is it
+Sumber : https://www.youtube.com/watch?v=D1txHSWj55g&list=PLoOwE8ovBltYNJrVQ3uciWDYCYCaNLQUw&index=3
