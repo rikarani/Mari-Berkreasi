@@ -1,4 +1,3 @@
-
 def terbilang(uang) :
     tabel = []
 
@@ -71,7 +70,7 @@ def tiga_digit(angka) :
     return " ".join(hasil)
 
 def main() :
-    jumlahUang = int(input())
+    jumlahUang = int(input("Masukkan Jumlah Uang : "))
 
     print(f"Terbilang : {terbilang(jumlahUang)}")
 
