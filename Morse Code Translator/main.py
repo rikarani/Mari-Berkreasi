@@ -46,7 +46,9 @@ enkrip = {
 dekrip = {key:value for value,key in enkrip.items()}
 
 def main() :
-	pass
+    kalimat = input().upper()
+
+    print(kalimat)
 
 if __name__ == "__main__" :
-	main()
+    main()
