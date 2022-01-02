@@ -48,7 +48,10 @@ dekrip = {key:value for value,key in enkrip.items()}
 def main() :
     kalimat = input().upper()
 
-    print(kalimat)
+    if kalimat.startswith(".") or kalimat.startswith("-") : # Kode Morse tuh kan awalnya kalo nda . ya -
+        print("Ini Kode Morse")
+    else :
+        print("Ini Huruf Alphabet")
 
 if __name__ == "__main__" :
     main()
