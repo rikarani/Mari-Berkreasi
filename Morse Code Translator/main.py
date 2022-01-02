@@ -1,6 +1,7 @@
-# Dari Huruf Alphabet ke Kode Morse
+# Kamus Dari Huruf Alphabet ke Kode Morse
 enkrip = {
-    " " : "/",
+	# Alphabet
+    " " : "/", # Spasi
     "A" : ".-",
     "B" : "-...",
     "C" : "-.-.",
@@ -26,14 +27,26 @@ enkrip = {
     "W" : ".--",
     "X" : "-..-",
     "Y" : "-.--",
-    "Z" : "--.."
+    "Z" : "--..",
+
+	# Angka
+	"1" : ".----",
+	"2" : "..---",
+	"3" : "...--",
+	"4" : "....-",
+	"5" : ".....",
+	"6" : "-....",
+	"7" : "--...",
+	"8" : "---..",
+	"9" : "----.",
+	"0" : "-----"
 }
 
-# Dari Kode Morse ke Huruf Alphabet
+# Kamus Dari Kode Morse ke Huruf Alphabet
 dekrip = {key:value for value,key in enkrip.items()}
 
 def main() :
-   pass
+	pass
 
 if __name__ == "__main__" :
-    main()
+	main()
