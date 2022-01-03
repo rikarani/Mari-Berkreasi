@@ -39,7 +39,14 @@ enkrip = {
 	"7" : "--...",
 	"8" : "---..",
 	"9" : "----.",
-	"0" : "-----"
+	"0" : "-----",
+
+    # Tanda Baca
+    "." : ".-.-.-",
+    "," : "--..--",
+    ":" : "---...",
+    "-" : "-....-",
+    "/" : "-..-.",
 }
 
 # Kamus Dari Kode Morse ke Huruf Alphabet
@@ -50,14 +57,17 @@ def main() :
     sandi = [] # List buat nyimpan hasil translate nya
 
     if kalimat.startswith(".") or kalimat.startswith("-") : # Kode Morse tuh kan awalnya kalo nda . ya -
-        print("Ini Kode Morse")
+        for kata in kalimat.split(" ") : # Setiap Kode Morse yang ada di variabel kalimat disimpan di variabel kata, dipisahkan dengan Spasi, trus diulang
+            sandi.append(dekrip[kata]) # Tambahkan terjemahan Kode Morsenya kedalam List
+        
+        print("Terjemahan Kode Morse", kalimat , "Adalah", "".join(sandi)) # Join biar jadi kayak tulisan biasa
     
     # Dari Huruf Alphabet ke Kode Morse
     else :
         for kata in kalimat : # Setiap Alphabet yang ada di variabel kalimat disimpan di variabel kata, trus diulang
-            sandi.append(enkrip[kata])
+            sandi.append(enkrip[kata]) # Tambahkan terjemahan Kode Morse Tiap Alphabetnya kedalam List
         
-        print("Kode Morse dari", kalimat , "Adalah" , " ".join(sandi))
+        print("Kode Morse dari", kalimat , "Adalah" , " ".join(sandi)) # Join dengan " " (Spasi) biar jadi kayak tulisan biasa
 
 if __name__ == "__main__" :
     main()
