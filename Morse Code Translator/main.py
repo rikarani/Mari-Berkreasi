@@ -52,22 +52,41 @@ enkrip = {
 # Kamus Dari Kode Morse ke Huruf Alphabet
 dekrip = {key:value for value,key in enkrip.items()}
 
-def main() :
-    kalimat = input().upper()
-    sandi = [] # List buat nyimpan hasil translate nya
+def alphabet_ke_morse(kalimat) :
+    '''
+    Dari Alphabet ke Kode Morse
 
-    if kalimat.startswith(".") or kalimat.startswith("-") : # Kode Morse tuh kan awalnya kalo nda . ya -
-        for kata in kalimat.split(" ") : # Setiap Kode Morse yang ada di variabel kalimat disimpan di variabel kata, dipisahkan dengan Spasi, trus diulang
-            sandi.append(dekrip[kata]) # Tambahkan terjemahan Kode Morsenya kedalam List
-        
-        print("Terjemahan Kode Morse", kalimat , "Adalah", "".join(sandi)) # Join biar jadi kayak tulisan biasa
-    
-    # Dari Huruf Alphabet ke Kode Morse
+    Contoh Inputnya "nama saya erika" (tanpa tanda petik) \n
+    Outputnya adalah -. .- -- .- / ... .- -.-- .- / . .-. .. -.- .-
+    '''
+    sandi = []
+
+    for kata in kalimat :
+        sandi.append(enkrip[kata])
+
+    return " ".join(sandi)
+
+def morse_ke_alphabet(kalimat) :
+    '''
+    Dari Kode Morse ke Alphabet
+
+    Contoh Inputnya -. .- -- .- / ... .- -.-- .- / . .-. .. -.- .- \n
+    Outputnya adalah "NAMA SAYA ERIKA" (tanpa tanda petik)
+    '''
+    sandi = []
+
+    for kata in kalimat.split(" ") :
+        sandi.append(dekrip[kata])
+
+    return "".join(sandi)
+
+def main() :
+    kalimat = input("Masukkan Teks : ").upper()
+
+    if kalimat.startswith(".") or kalimat.startswith("-") :
+        print(morse_ke_alphabet(kalimat))
     else :
-        for kata in kalimat : # Setiap Alphabet yang ada di variabel kalimat disimpan di variabel kata, trus diulang
-            sandi.append(enkrip[kata]) # Tambahkan terjemahan Kode Morse Tiap Alphabetnya kedalam List
-        
-        print("Kode Morse dari", kalimat , "Adalah" , " ".join(sandi)) # Join dengan " " (Spasi) biar jadi kayak tulisan biasa
+        print(alphabet_ke_morse(kalimat))
 
 if __name__ == "__main__" :
     main()
