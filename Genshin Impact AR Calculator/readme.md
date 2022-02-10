@@ -6,6 +6,6 @@ Note :
 > Hasil yang keluar dari Kalkulator ini Merupakan Perhitungan dari Progress Daily. Jika kalian mengerjakan Quest lainnya (Archon Quest, Story Quest, dll) maka perkiraan hari bisa lebih cepat dari perhitungan
 
 To-Do List :
-- Tambahkan Basic Input Output (Info Player & Penghasilan Player per Harinya)
+- ~~Tambahkan Basic Input Output (Info Player & Penghasilan Player per Harinya)~~
 - Hitung AR EXP yang dibutuhkan
 - Hitung Perkiraan Hari yang dibutuhkan
