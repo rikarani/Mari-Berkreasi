@@ -65,7 +65,11 @@ def main() :
         print(f"Kamu Butuh {hitung_AR(AR_Sekarang, AR_EXP_Sekarang, Target_AR)} AR EXP untuk mencapai AR {Target_AR}")
     
     # Output Hasil Hitung Perkiraan Hari
-    print(f"Butuh kira-kira {hitung_AR(AR_Sekarang, AR_EXP_Sekarang, Target_AR) // hitung_EXP_Per_Hari(Commision, Resin)} Hari untuk mencapai AR {Target_AR}")
+    try :
+        Perkiraan_Hari = hitung_AR(AR_Sekarang, AR_EXP_Sekarang, Target_AR) // hitung_EXP_Per_Hari(Commision, Resin)
+        print(f"Butuh kira-kira {Perkiraan_Hari} Hari untuk mencapai AR {Target_AR}")
+    except :
+        print("Untuk Menghitung Perkiraan Hari, Selesaikan setidaknya 1 Daily Commision atau gunakan 20 Resin")
 
 if __name__ == "__main__" :
     main()
