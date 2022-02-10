@@ -9,3 +9,4 @@ To-Do List :
 - ~~Tambahkan Basic Input Output (Info Player & Penghasilan Player per Harinya)~~
 - ~~Hitung AR EXP yang dibutuhkan~~
 - ~~Hitung Perkiraan Hari yang dibutuhkan~~
+- njirr ada error coekk
