@@ -1,6 +1,7 @@
 # Tools Sederhana Untuk Menghitung Berapa AR EXP yang dibutuhkan & Perkiraan Harinya untuk sampai ke AR Sekian
 
 # Konstanta
+EXP_Per_Commision = 250
 EXP_Per_20_Resin = 100
 Bonus_Commision = 500 # Didapatkan jika menyelesaikan 4 daily komisi
 
@@ -33,8 +34,14 @@ def hitung_AR(AR_Sekarang, AR_EXP_Sekarang, Target_AR) :
 
     return AR_EXP_yang_dibutuhkan
 
-def hitung_perkiraan_hari() :
-    pass
+def hitung_EXP_Per_Hari(Commision, Resin) :
+    # Nilai EXP per Commision bisa disesuaikan di bagian Konstanta
+    if Commision >= 4 :
+        AR_EXP_per_hari = (EXP_Per_Commision * 4) + Bonus_Commision + (EXP_Per_20_Resin * (Resin // 20))
+    else :
+        AR_EXP_per_hari = (EXP_Per_Commision * Commision) + (EXP_Per_20_Resin * (Resin // 20))
+
+    return AR_EXP_per_hari
 
 def main() :
     # Input Data Player (AR Sekarang & AR EXP Sekarang)
@@ -58,7 +65,7 @@ def main() :
         print(f"Kamu Butuh {hitung_AR(AR_Sekarang, AR_EXP_Sekarang, Target_AR)} AR EXP untuk mencapai AR {Target_AR}")
     
     # Output Hasil Hitung Perkiraan Hari
-    print(f"Kamu Butuh kira-kira sekian hari untuk mencapai Target AR mu")
+    print(f"Butuh kira-kira {hitung_AR(AR_Sekarang, AR_EXP_Sekarang, Target_AR) // hitung_EXP_Per_Hari(Commision, Resin)} Hari untuk mencapai AR {Target_AR}")
 
 if __name__ == "__main__" :
     main()
