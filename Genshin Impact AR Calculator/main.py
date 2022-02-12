@@ -44,31 +44,92 @@ def hitung_EXP_Per_Hari(Commision, Resin) :
     return AR_EXP_per_hari
 
 def main() :
-    # Input Data Player (AR Sekarang & AR EXP Sekarang)
-    AR_Sekarang = int(input("Masukkan AR Sekarang : "))
-    AR_EXP_Sekarang = int(input("Masukkan AR EXP Sekarang : "))
+    # Input Data Player
+    while True :
+        try :
+            AR_Sekarang = int(input("Masukkan AR Sekarang : "))
+            break
+        except ValueError :
+            print("Input Error, Harap Masukkan Angka")
+            print()
 
-    # Input Target AR (mau ke AR berapa)
-    Target_AR = int(input("Masukkan Target AR : "))
-    print()
+    while True :
+        try :
+            AR_EXP_Sekarang = int(input("Masukkan AR EXP Sekarang : "))
+            break
+        except ValueError :
+            print("Input Error, Harap Masukkan Angka")
+            print()
+    
+    while True :
+        try :
+            Target_AR = int(input("Masukkan Target AR : "))
+            print()
+            break
+        except ValueError :
+            print("Input Error, Harap Masukkan Angka")
+            print()
+
+    # Checking (memeriksa apakah AR Target lebih besar dari AR Sekarang, nggak mungkin kan dari AR 40 mau ke AR 35)
+    kondisi = True
+    while kondisi :
+        if AR_Sekarang > Target_AR :
+            print(f"Input Terbalik, Tidak bisa menghitung dari AR Tinggi ke AR Rendah")
+            print()
+            while True :
+                try :
+                    AR_Sekarang = int(input("Masukkan AR Sekarang : "))
+                    break
+                except ValueError :
+                    print("Input Error, Harap Masukkan Angka")
+                    print()
+
+            while True :
+                try :
+                    AR_EXP_Sekarang = int(input("Masukkan AR EXP Sekarang : "))
+                    break
+                except ValueError :
+                    print("Input Error, Harap Masukkan Angka")
+                    print()
+            
+            while True :
+                try :
+                    Target_AR = int(input("Masukkan Target AR : "))
+                    print()
+                    break
+                except ValueError :
+                    print("Input Error, Harap Masukkan Angka")
+                    print()
+        else :
+            kondisi = False
 
     # Input Progress Daily Player
-    Commision = int(input("Masukkan Daily Commision yang sudah dikerjakan : "))
-    Resin = int(input("Masukkan Jumlah Resin yang sudah dihabiskan : "))
-    print("---------------------------------------------------")
+    while True :
+        try :
+            Commision = int(input("Masukkan Daily Commision yang sudah dikerjakan : "))
+            break
+        except ValueError :
+            print("Input Error, Harap Masukkan Angka")
+            print()
 
-    # Output Hasil Perhitungan
-    # Output Hasil Hitung AR EXP
-    if hitung_AR(AR_Sekarang, AR_EXP_Sekarang, Target_AR) < 0 :
-        print("Input Terbalik, Tidak bisa menghitung dari AR Tinggi ke AR Rendah")
-    else :
-        print(f"Kamu Butuh {hitung_AR(AR_Sekarang, AR_EXP_Sekarang, Target_AR)} AR EXP untuk mencapai AR {Target_AR}")
-    
-    # Output Hasil Hitung Perkiraan Hari
+    while True :
+        try :
+            Resin = int(input("Masukkan Jumlah Resin yang sudah dihabiskan : "))
+            print("---------------------------------------------------")
+            break
+        except ValueError :
+            print("Input Error, Harap Masukkan Angka")
+            print()
+
+    # Output
+    # Hasil Hitung AR EXP
+    print(f"Kamu Butuh {hitung_AR(AR_Sekarang, AR_EXP_Sekarang, Target_AR)} AR EXP untuk mencapai AR {Target_AR}")
+
+    # Hasil Hitung Perkiraan Hari
     try :
         Perkiraan_Hari = hitung_AR(AR_Sekarang, AR_EXP_Sekarang, Target_AR) // hitung_EXP_Per_Hari(Commision, Resin)
         print(f"Butuh kira-kira {Perkiraan_Hari} Hari untuk mencapai AR {Target_AR}")
-    except :
+    except ZeroDivisionError:
         print("Untuk Menghitung Perkiraan Hari, Selesaikan setidaknya 1 Daily Commision atau gunakan 20 Resin")
 
 if __name__ == "__main__" :
